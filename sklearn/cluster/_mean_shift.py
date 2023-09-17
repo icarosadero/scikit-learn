@@ -182,7 +182,7 @@ def mean_shift(X, bandwidth=None, seeds=None, bin_seeding=False,
             my_mean = _kernel_update(my_old_mean, points_within, bandwidth,
                                      kernel, gamma)
             # If converged or at max_iterations, addS the cluster
-            if (extmath.norm(my_mean - my_old_mean) < stop_thresh or
+            if (extmath.np.linalg.norm(my_mean - my_old_mean) < stop_thresh or
                     completed_iterations == max_iter):
                 center_intensity_dict[tuple(my_mean)] = len(points_within)
                 break
