@@ -337,7 +337,7 @@ def _kernel_update(old_cluster_center, points, bandwidth, kernel, gamma):
                              ", ".join(implemented_kernels))
 
         # Compute new mean
-        distances = euclidean_distances(points, old_cluster_center)
+        distances = euclidean_distances(points, old_cluster_center.reshape(1,-1))
         weights = compute_weights(distances, bandwidth)
         weighted_mean = np.sum(points * weights, axis=0) / np.sum(weights)
 
