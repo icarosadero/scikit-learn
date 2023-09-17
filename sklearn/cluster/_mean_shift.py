@@ -201,7 +201,7 @@ def mean_shift(X, bandwidth=None, seeds=None, bin_seeding=False,
     sorted_by_intensity = sorted(center_intensity_dict.items(),
                                  key=lambda tup: tup[1], reverse=True)
     sorted_centers = np.array([tup[0] for tup in sorted_by_intensity])
-    unique = np.ones(len(sorted_centers), dtype=np.bool)
+    unique = np.ones(len(sorted_centers), dtype=bool)
     nbrs = NearestNeighbors(radius=bandwidth).fit(sorted_centers)
     for i, center in enumerate(sorted_centers):
         if unique[i]:
